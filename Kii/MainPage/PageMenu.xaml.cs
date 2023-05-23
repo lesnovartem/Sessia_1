@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kii.odbConnectHelper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,23 +13,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Kii.odbConnectHelper;
-using Kii.MainPage;
 
-namespace Kii
+namespace Kii.MainPage
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PageMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageMenu : Page
     {
-        public MainWindow()
+        public PageMenu()
         {
             InitializeComponent();
-            FrameApp.frmObj = Frame;
-            FrameApp.frmObj.Navigate(new PageLogin());
-            odbConnectApp.odbObj = new KIITestEntities();
         }
 
+        private void btnFirst_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageFirst());
+        }
     }
 }

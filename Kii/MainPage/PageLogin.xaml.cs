@@ -13,22 +13,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kii.odbConnectHelper;
-using Kii.MainPage;
 
-namespace Kii
+namespace Kii.MainPage
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PageLogin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageLogin : Page
     {
-        public MainWindow()
+        public PageLogin()
         {
             InitializeComponent();
-            FrameApp.frmObj = Frame;
-            FrameApp.frmObj.Navigate(new PageLogin());
-            odbConnectApp.odbObj = new KIITestEntities();
         }
 
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            var userObj = odbConnectApp.odbObj.User.FirstOrDefault(x => x.Login == txbLogin.Text && x.Password == txbPassword.Text);
+            if (userObj!=null)
+            {
+                FrameApp.frmObj.Navigate(new PageMenu());
+            }
+        }
     }
 }

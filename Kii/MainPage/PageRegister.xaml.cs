@@ -12,23 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Kii.odbConnectHelper;
-using Kii.MainPage;
 
-namespace Kii
+namespace Kii.MainPage
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для PageRegister.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PageRegister : Page
     {
-        public MainWindow()
+        public PageRegister()
         {
             InitializeComponent();
-            FrameApp.frmObj = Frame;
-            FrameApp.frmObj.Navigate(new PageLogin());
-            odbConnectApp.odbObj = new KIITestEntities();
         }
-
     }
 }
